@@ -16,8 +16,9 @@ builder.Services.AddDbContext<NZWalksDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("NZWalks"));
 });
 
-//when asking for iregion  repository, give me the implementation for region repository
+//when asking for iregion  repository, give me the implementation for region repository instead
 builder.Services.AddScoped<IRegionRepository, RegionRepository>();
+builder.Services.AddScoped<IWalkRepository, WalkRepository>();
 
 //automapper injection
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
